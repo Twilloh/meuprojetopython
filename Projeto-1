@@ -1,0 +1,41 @@
+import random
+import calendar
+
+matematica = range(0, 10)
+portugues = range(0, 10)
+ciencia = range(0, 10)
+artes = range(0, 10)
+
+while True:
+  email = input("Digite seu email: ")
+  senha = input("Digiete sua senha: ")
+  if email and senha != "":
+    if "@gmail.com" in email or "@hotmail.com" in email:
+      if len(senha) >= 6:
+        aluno = input("Bem vindo ao Unasp! Gostaria de acessar suas notas ou o calendário? ")
+        if aluno == "notas":
+          matematica = sum(random.sample(matematica, 2))/2
+          print(f"Sua nota média em matematica foi: {matematica}")
+          portugues = sum(random.sample(portugues, 2))/2
+          print(f"Sua nota média em português foi: {portugues}")
+          ciencia = sum(random.sample(ciencia, 2))/2
+          print(f"Sua nota média em ciência foi: {ciencia}")
+          artes = sum(random.sample(artes, 2))/2
+          print(f"Sua nota média em matemática foi: {artes}")
+          aluno = input("Gostaria de ver ou calendário?")
+        if aluno == "sim" or "calendário":
+            print(calendar.month(2024, 5))
+            print("Dia 15 terá a apresentação de matemática")
+            break
+        if aluno == "Não":
+            break
+      else:
+        senha = input("Email ou senha incorretos, deseja tentar novamente? ")
+        if email == "não":
+          print("Bye!")
+          break
+    else:
+     email = input("Email ou senha incorretos, deseja tentar novamente? ")
+     if email == "não":
+      print("Bye!")
+      break
